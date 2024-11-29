@@ -7,7 +7,9 @@ input_data.close()
 print("Введите искомый элемент: ")    #ввод искомого элемента
 n=input()
 n=int(n)
-pos=10101010      #для линейного поиска
+pos=10101010     #для линейного поиска
+kollin=0
+kolbin=0
 
 
 #бинарный поиск
@@ -24,14 +26,19 @@ while list_1[mid] != n and low<=high :
     else : 
         high=mid-1
     mid=(low+high)//2
+    kolbin+=1
 if low>high :  print("Элемента нет")
 else : print("Позиция элемента при бинарном поиске: "+str(mid+1))
+print("Количество опреаций при бинарном поиске: "+str(kolbin))
 
 
 #линейный поиск
 #просто перебираем, пока не найдем
 for i in range (len(list_1)):
+    kollin+=1
     if n == list_1[i] : 
         pos=i
+        break
 if pos==10101010 : print("Элемента нет")
 else : print("Позиция элемента при линейном поиске: "+str(pos+1))
+print('Количество операций при линейном поиске: '+str(kollin))
