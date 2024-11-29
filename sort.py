@@ -22,22 +22,24 @@ for i in list_1 :
     output_data.write(str(i) + ' ')
 output_data.close()
 
-
 #сортировка выбором
-#проходим по всему массиву и ищем минимальный элемент
-#меняем первый элемент массива на минимальный и повторяем процедуру, начиная со следующего элемента
-i=0
-while i<len(list_2)-1 :
-    m=i
-    j=i+1
-    while j<len(list_2) :
-        if list_2[j]<list_2[m]: m=j
-        j+=1
-        kol2+=1
-    list_2[i], list_2[m]=list_2[m], list_2[i]
-    i+=1
-    print(list_2)
-
+# длина списка 
+n=len(list_2)                                    
+# главный цикл
+for i in range(n):         
+    print("До    :",list_2)   
+    # ищем минимум на отрезке [i,n-1]
+    mi=list_2[i] 
+    ii=i
+    for j in range(i,n): 
+        if list_2[j]<mi:
+            kol2 +=1
+            # минимум
+            mi=list_2[j]                     
+            # меняем i-й с минимумом 
+        list_2[i],list_2[j]=list_2[j],list_2[i]       
+    print("После :",list_2)
+    print()
 
 #выводы
 print("Отсортированные числа: ", list_2)
